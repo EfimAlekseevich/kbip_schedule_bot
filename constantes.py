@@ -1,5 +1,5 @@
 bot_token = '883702593:AAFcnr7hRGeMpXveQe9Y7vxsrUm7tV7F_Rc'
-base_url = 'https://kbp.by/rasp/timetable/view_beta_tbp/?cat=group&id='
+base_url = 'https://kbp.by/rasp/timetable/view_beta_kbp/?page=stable&cat=group&id='
 
 week_days = {
     '1': 'Понедельник',

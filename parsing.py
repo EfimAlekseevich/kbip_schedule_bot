@@ -1,3 +1,4 @@
+import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -5,7 +6,7 @@ from bs4 import BeautifulSoup
 def get_html(url):
     proxies = {'http': '52.35.217.148'}
     response = requests.get(url, proxies=proxies)
-    html = response.content
+    html = response.text
     return html
 
 
@@ -31,12 +32,13 @@ def get_data_dict(html):
             '6': [],
             '7': [],
             }
-
+    print(schedule)
     for pair_number, row_pairs in schedule.items():
         for pair in row_pairs:
             if pair:
                 pair['time'] = pair_number
                 days[str(pair['day'])].append(pair)
+    print(days)
     return days
 
 
@@ -56,3 +58,20 @@ def get_pair(day, td):
                  'subject': subject,
                  'teachers': teachers,
                  'place': place})
+
+
+def get_faculties():
+    url = 'https://kbp.by/rasp/timetable/view_beta_kbp/'
+    html = get_html(url)
+    soup = BeautifulSoup(html, 'html.parser')
+    faculties_block = soup.find('div', class_='find_block')
+    faculties = {}
+    for facultie_block in faculties_block.find_all('div', class_='spec'):
+        facultie_name = facultie_block.find('div', class_='spec-head').string
+        faculties[facultie_name] = {}
+        groups = facultie_block.find_all('a')
+        for group in groups:
+            group_id = re.search(r'id=(\d+)', group['href']).group(1)
+            group_name = group.string
+            faculties[facultie_name][group_name] = group_id
+    return faculties

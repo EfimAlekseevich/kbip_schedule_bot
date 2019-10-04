@@ -6,6 +6,7 @@ import telebot
 import functions as f
 import my_markups
 from constantes import bot_token, week_days, admins
+from parsing import get_faculties
 
 
 def main():
@@ -13,7 +14,7 @@ def main():
         bot = telebot.TeleBot(bot_token)
         activity = f.get_json_data_dict('activity')
         emodji = f.get_json_data_dict('emodji')
-        faculties = f.get_json_data_dict('faculties')
+        faculties = get_faculties()
         timing = f.get_json_data_dict('timing')
         users = f.get_json_data_dict('users')
         markups = my_markups.get_all_markups(faculties, week_days.values())
@@ -71,6 +72,12 @@ def main():
                     'reply_markup': None,
                     'parse_mode': None
                 }
+                if not f.user_is_exist(users, user_id):
+                    users.append({'id': user_id,
+                                  'faculty': None,
+                                  'group': None,
+                                  })
+                    answer['reply_markup'] = markups['faculties']
                 if user_id in admins:
                     answer['text'] = random.choice(emodji['good_emodji'])
                     if message_text == 'save activity':
