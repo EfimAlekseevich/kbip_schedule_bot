@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="95e09773-cc22-4343-a77a-19791b8051f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/activity.json" beforeDir="false" afterPath="$PROJECT_DIR$/activity.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_markups.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_markups.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/parsing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/users.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +72,9 @@
       <option name="presentableId" value="Default" />
       <updated>1570262103456</updated>
       <workItem from="1570262117764" duration="39000" />
-      <workItem from="1570280041122" duration="4630000" />
+      <workItem from="1570280041122" duration="5018000" />
+      <workItem from="1570294635843" duration="784000" />
+      <workItem from="1570302457827" duration="1124000" />
     </task>
     <servers />
   </component>
@@ -97,7 +95,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kbip_schedule_bot$main.coverage" NAME="main Coverage Results" MODIFIED="1570284761392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kbip_schedule_bot$main.coverage" NAME="main Coverage Results" MODIFIED="1570303070648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kbip_telebot$parsing.coverage" NAME="parsing Coverage Results" MODIFIED="1558789318177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kbip_telebot$dos.coverage" NAME="dos Coverage Results" MODIFIED="1558708579746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kbip_telebot$main.coverage" NAME="main Coverage Results" MODIFIED="1558983792597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

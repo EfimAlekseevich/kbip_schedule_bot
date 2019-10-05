@@ -1,6 +1,7 @@
 from telebot.types import ReplyKeyboardMarkup
 from functions import get_daily_schedule, get_button_text
 from constantes import week_days
+from parsing import get_date
 
 
 def get_all_markups(faculties):
@@ -23,7 +24,7 @@ def get_markup(elements):
 def get_daily_schedule_markup(week_day, group_id, timing):
     markup = ReplyKeyboardMarkup(True)
     daily_schedule = get_daily_schedule(group_id, week_day)
-    markup.add(week_days[str(week_day)])
+    markup.add(week_days[str(week_day)] + ' | ' + get_date())
     for pair in daily_schedule:
         cols = get_pair_row(pair, timing)
         markup.row(cols['time'], cols['subject'], cols['teacher'], cols['place'])

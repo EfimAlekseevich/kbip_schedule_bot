@@ -81,3 +81,12 @@ def add_group(facultie, group):
     group_id = re.search(r'id=(\d+)', group['href']).group(1)
     group_name = group.string
     facultie[group_name] = group_id
+
+
+def get_date():
+    url = 'https://kbp.by/rasp/timetable/view_beta_kbp/?page=stable&cat=group&id=81'
+    html = get_html(url)
+    soup = BeautifulSoup(html, 'html.parser')
+    left_week = soup.find('div', id='left_week')
+    date = left_week.find('p', class_='date').string
+    return date
