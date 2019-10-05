@@ -5,7 +5,7 @@ import telebot
 
 import functions as f
 import my_markups
-from constantes import bot_token, week_days, admins
+from constantes import bot_token, admins
 from parsing import get_faculties
 
 
@@ -17,7 +17,7 @@ def main():
         faculties = get_faculties()
         timing = f.get_json_data_dict('timing')
         users = f.get_json_data_dict('users')
-        markups = my_markups.get_all_markups(faculties, week_days.values())
+        markups = my_markups.get_all_markups(faculties)
         print('=====START=====')
 
         try:

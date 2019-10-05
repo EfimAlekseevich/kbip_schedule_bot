@@ -14,11 +14,8 @@ def get_json_data_dict(filename):
 
 def get_daily_schedule(group_id, week_day):
     html = parsing.get_html(f'{base_url}{str(group_id)}')
-    print(html)
     schedule = parsing.get_data_dict(html)
-    print(schedule)
     daily_schedule = schedule[str(week_day)]
-    print(daily_schedule)
     if daily_schedule:
         return daily_schedule
     else:

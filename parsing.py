@@ -13,7 +13,7 @@ def get_html(url):
 def get_data_dict(html):
     soup = BeautifulSoup(html, 'html.parser')
     trs = soup.find_all('tr')[2:9]
-    schedule = {}
+    schedule = dict()
     for tr in trs:
         tds = tr.find_all('td')
         pair_number = tds[0].string
@@ -32,13 +32,11 @@ def get_data_dict(html):
             '6': [],
             '7': [],
             }
-    print(schedule)
     for pair_number, row_pairs in schedule.items():
         for pair in row_pairs:
             if pair:
                 pair['time'] = pair_number
                 days[str(pair['day'])].append(pair)
-    print(days)
     return days
 
 
@@ -65,13 +63,21 @@ def get_faculties():
     html = get_html(url)
     soup = BeautifulSoup(html, 'html.parser')
     faculties_block = soup.find('div', class_='find_block')
-    faculties = {}
+    faculties = dict()
     for facultie_block in faculties_block.find_all('div', class_='spec'):
-        facultie_name = facultie_block.find('div', class_='spec-head').string
-        faculties[facultie_name] = {}
-        groups = facultie_block.find_all('a')
-        for group in groups:
-            group_id = re.search(r'id=(\d+)', group['href']).group(1)
-            group_name = group.string
-            faculties[facultie_name][group_name] = group_id
+        add_facultie(faculties, facultie_block)
     return faculties
+
+
+def add_facultie(faculties, facultie_block):
+    facultie_name = facultie_block.find('div', class_='spec-head').string
+    faculties[facultie_name] = dict()
+    groups = facultie_block.find_all('a')
+    for group in groups:
+        add_group(faculties[facultie_name], group)
+
+
+def add_group(facultie, group):
+    group_id = re.search(r'id=(\d+)', group['href']).group(1)
+    group_name = group.string
+    facultie[group_name] = group_id
